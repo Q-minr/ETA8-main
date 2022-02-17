@@ -429,67 +429,69 @@
             </el-select>
           </el-form-item>
         </el-col>
-        <el-row :gutter="20">
-          <el-col class="subject-info" :span="12" :xs="24">
-            <el-form-item label="买方省份" prop="BuyerProvince">
-              <el-select
-                v-model="FormData.BuyerProvince"
-                placeholder="请选择买方省份"
-                @change="QueryCity"
-                style="display: block"
-              >
-                <template v-for="rankEach in BuyerProvinceList">
-                  <el-option
-                    :label="rankEach.Province"
-                    :value="rankEach.id"
-                    :key="rankEach.id"
-                  ></el-option>
-                </template>
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col class="subject-info" :span="12" :xs="24">
+          <el-form-item label="买方省份" prop="BuyerProvince">
+            <el-select
+              v-model="FormData.BuyerProvince"
+              placeholder="请选择买方省份"
+              @change="QueryCity"
+              style="display: block"
+            >
+              <template v-for="rankEach in BuyerProvinceList">
+                <el-option
+                  :label="rankEach.Province"
+                  :value="rankEach.id"
+                  :key="rankEach.id"
+                ></el-option>
+              </template>
+            </el-select>
+          </el-form-item>
+        </el-col>
+      </el-row>
 
-        <el-row :gutter="20">
-          <el-col class="subject-info" :span="12" :xs="24">
-            <el-form-item prop="BuyerCity" v-if="FormData.BuyerProvince !== ''">
-              <el-select
-                v-model="FormData.BuyerCity"
-                placeholder="请选择买方地市"
-                @change="QueryCounty"
-                style="display: block"
-              >
-                <template v-for="rankEach in BuyerCityList">
-                  <el-option
-                    :label="rankEach.City"
-                    :value="rankEach.id"
-                    :key="rankEach.id"
-                  ></el-option>
-                </template>
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
+      <el-row :gutter="20">
+        <el-col class="subject-info" :span="12" :xs="24">
+          <el-form-item prop="BuyerCity" v-if="FormData.BuyerProvince !== ''">
+            <el-select
+              v-model="FormData.BuyerCity"
+              placeholder="请选择买方地市"
+              @change="QueryCounty"
+              style="display: block"
+            >
+              <template v-for="rankEach in BuyerCityList">
+                <el-option
+                  :label="rankEach.City"
+                  :value="rankEach.id"
+                  :key="rankEach.id"
+                ></el-option>
+              </template>
+            </el-select>
+          </el-form-item>
+        </el-col>
+      </el-row>
 
-        <el-row :gutter="20">
-          <el-col class="subject-info" :span="12" :xs="24">
-            <el-form-item prop="BuyerCounty" v-if="FormData.BuyerCity !== ''">
-              <el-select
-                v-model="FormData.BuyerCounty"
-                placeholder="请选择买方县区"
-                style="display: block"
-              >
-                <template v-for="rankEach in BuyerCountyList">
-                  <el-option
-                    :label="rankEach.County"
-                    :value="rankEach.id"
-                    :key="rankEach.id"
-                  ></el-option>
-                </template>
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
+      <el-row :gutter="20">
+        <el-col class="subject-info" :span="12" :xs="24">
+          <el-form-item prop="BuyerCounty" v-if="FormData.BuyerCity !== ''">
+            <el-select
+              v-model="FormData.BuyerCounty"
+              placeholder="请选择买方县区"
+              style="display: block"
+            >
+              <template v-for="rankEach in BuyerCountyList">
+                <el-option
+                  :label="rankEach.County"
+                  :value="rankEach.id"
+                  :key="rankEach.id"
+                ></el-option>
+              </template>
+            </el-select>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
         <el-col class="subject-info" :span="12" :xs="24">
           <el-form-item label="买方邮编" prop="BuyerPostCode">
             <el-input
@@ -1265,7 +1267,7 @@ export default {
       params.append("CityId", this.FormData.BuyerCity);
       QueryCountyList(params)
         .then((res) => {
-          _this.BuyerCountryList = res;
+          _this.BuyerCountyList = res;
         })
         .catch((failResponse) => {});
     },
